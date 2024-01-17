@@ -1,0 +1,44 @@
+Algorithme Est_Armstrong(n)
+    index <- 0
+    result <- 0
+    tableau <- tableau_vide_de_taille_25
+
+    Si n <= 0 Alors
+        Retourner -1
+    Fin Si
+
+    Tant que n != 0 Faire
+        tableau[index] <- n MOD 10
+        result <- result + tableau[index] * tableau[index] * tableau[index]
+        n <- n / 10
+        index <- index + 1
+
+        Si index >= 25 OU result >= 1000 Alors
+            Retourner -1
+        Fin Si
+    Fin Tant Que
+
+    Retourner 1
+Fin Algorithme
+
+Algorithme Principal
+    i <- 1
+    limite <- 0
+
+    Afficher "Entrez une limite inférieure à 1000 : "
+    Lire limite
+
+    Tant que limite >= 1000 OU limite < 1 Faire
+        Afficher "Entrez une limite comprise entre 1 et 1000 : "
+        Lire limite
+    Fin Tant Que
+
+    Afficher saut de ligne
+
+    Pour i de 1 à limite Faire
+        Si Est_Armstrong(i) != -1 Alors
+            Afficher i
+        Fin Si
+    Fin Pour
+Fin Algorithme
+

@@ -1,0 +1,50 @@
+Algorithme Saisie_Limite
+    limit <- 0
+    
+    // Demander à l'utilisateur de saisir une limite inférieure à 100
+    Afficher "Entrez une limite inférieure à 100 : "
+    Lire limit
+    
+    // Vérifier si la limite est valide
+    Tant que limit >= 100 OU limit < 1
+        Afficher "Entrez une limite comprise entre 1 et 100 : "
+        Lire limit
+    Fin Tant Que
+    
+    Afficher saut de ligne
+    
+    
+
+Algorithme Est_Abondant(n)
+    somme <- 0
+    i <- 2
+    
+    Tant que i < n
+        Si n MOD i = 0 Alors
+            somme <- somme + i
+        Fin Si
+        
+        i <- i + 1
+    Fin Tant Que
+    
+    Si somme <= n Alors
+        Retourner 0  // Le nombre n n'est pas abondant
+    Sinon
+        Retourner 1  // Le nombre n est abondant
+    Fin Si
+
+
+Algorithme Principal
+    i <- 1
+    limit <- 0
+    
+    // Appeler l'algorithme de saisie de la limite
+    Appeler Saisie_Limite
+    
+    Pour i de 1 à limit Faire
+        // Appeler l'algorithme de vérification d'abondance
+        Si Est_Abondant(i) = 1 Alors
+            Afficher i
+        Fin Si
+    Fin Pour
+
